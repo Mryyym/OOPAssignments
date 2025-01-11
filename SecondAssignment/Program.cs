@@ -1,5 +1,22 @@
-﻿namespace SecondAssignment
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace SecondAssignment
 {
+    #region part01 enum
+
+    [Flags]
+    enum Permission :byte
+    {
+        Delete = 1, Execute =2, Read=4, Write=8
+    }
+    class Employeee
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public decimal Salary { get; set; }
+        public Permission Permission { get; set; }
+    }
+    #endregion
     internal class Program
     {
         static void Main(string[] args)
@@ -38,8 +55,13 @@
             #endregion
 
 
-            #region MyRegion
-
+            #region part01 enum
+            Employeee emp= new Employeee();
+            emp.ID = 1;
+            emp.Name = "Mariam";
+            emp.Salary = 5000;
+            //emp.Permission = Permission.Read ;
+            emp.Permission = (Permission)2 ;
             #endregion
 
             #endregion
