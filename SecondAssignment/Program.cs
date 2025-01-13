@@ -3,7 +3,7 @@
 namespace SecondAssignment
 {
     #region part01 enum
-
+    /*
     [Flags]
     enum Permission :byte
     {
@@ -16,12 +16,25 @@ namespace SecondAssignment
         public decimal Salary { get; set; }
         public Permission Permission { get; set; }
     }
+
+    */
+    #endregion
+
+    #region part02 enum
+
+
+    [Flags]
+    enum Permission : byte
+    {
+        Delete = 1, Execute = 2, Read = 4, Write = 8
+    }
+
     #endregion
     internal class Program
     {
         static void Main(string[] args)
         {
-            #region Part01
+            #region  Assignment Part01
             #region with getter and settr
             /*
             PhoneBook Note = new PhoneBook(3);
@@ -56,18 +69,59 @@ namespace SecondAssignment
 
 
             #region part01 enum
+            /*
             Employeee emp= new Employeee();
             emp.ID = 1;
             emp.Name = "Mariam";
             emp.Salary = 5000;
             //emp.Permission = Permission.Read ;
             emp.Permission = (Permission)2 ;
+
+            */
             #endregion
 
+
+            #region part02 enum
+
+            //Permission P = (Permission)3;
+            //Console.WriteLine(P);
+
+
+            /////to add another permission
+            //P |= Permission.Read;
+            //Console.WriteLine(P);
+
+
+            ///// to delete / stop existiong prmission
+            //P &= ~Permission.Read;
+            //Console.WriteLine(P);
+
+
+            /////to switch btween permssions
+            //P^= Permission.Read;
+            //Console.WriteLine(P);
+
+
+
+            /////to check if prmission exists
+            //if ((P & Permission.Delete) == Permission.Delete) Console.WriteLine("Delete exists");
+
+            //else Console.WriteLine("Delete Not exists");
+
             #endregion
 
 
-            #region Part02
+            #region Class
+
+
+
+            #endregion
+
+
+            #endregion
+
+
+            #region  Assignment Part02
             #region Design and implement a Class for the employees in a company
 
             #endregion
