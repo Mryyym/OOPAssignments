@@ -2,6 +2,7 @@
 
 namespace SecondAssignment
 {
+    #region Assignmnt part 01
     #region part01 enum
     /*
     [Flags]
@@ -23,12 +24,24 @@ namespace SecondAssignment
     #region part02 enum
 
 
-    [Flags]
-    enum Permission : byte
-    {
-        Delete = 1, Execute = 2, Read = 4, Write = 8
-    }
+    //[Flags]
+    //enum Permission : byte
+    //{
+    //    Delete = 1, Execute = 2, Read = 4, Write = 8
+    //}
 
+    #endregion
+    #endregion
+
+    #region Assignment part 02
+    [Flags]
+    public enum SecurityLevel : byte
+    {
+        Guest = 1,
+        Developer = 2,
+        Secretary = 4,
+        DBA = 8
+    }
     #endregion
     internal class Program
     {
@@ -113,6 +126,20 @@ namespace SecondAssignment
 
             #region Class
 
+            //Car c1 = new Car(1,"BMW",270);
+
+            //Console.WriteLine(c1.ToString());
+            #endregion
+
+            #region Inhertance
+
+            //Parent P = new Parent(1,2);
+            //Console.WriteLine(P);
+            //Console.WriteLine(P.Product());
+
+            //Child c= new Child(1,2,3);
+            //Console.WriteLine(c);
+            //Console.WriteLine(c.Product());
 
 
             #endregion
@@ -124,10 +151,47 @@ namespace SecondAssignment
             #region  Assignment Part02
             #region Design and implement a Class for the employees in a company
 
+            try
+            {
+                Employee emp = new Employee(
+                    id: 101,
+                    name: "John Doe",
+                    securityLevel: SecurityLevel.Developer | SecurityLevel.DBA,
+                    salary: 85000.75m,
+                    hireDate: new DateTime(2020, 10, 15),
+                    gender: 'M'
+                );
+
+                Console.WriteLine(emp.ToString());
+
+                if ((emp.SecurityLevel & SecurityLevel.DBA) == SecurityLevel.DBA)
+                {
+                    Console.WriteLine("The employee has DBA privileges.");
+                }
+
+                emp = new Employee(emp.ID, emp.Name, emp.SecurityLevel | SecurityLevel.Secretary, emp.Salary, emp.HireDate, emp.Gender);
+                Console.WriteLine("Updated Security Level: " + emp.SecurityLevel);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
             #endregion
 
 
             #region Develop a Class to represent the Hiring Date Data:
+
+            try
+            {
+                HiringDate hiringDate = new HiringDate(15, 10, 2020);
+
+                Console.WriteLine("Hiring Date: " + hiringDate.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
 
             #endregion
 
