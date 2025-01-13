@@ -34,14 +34,27 @@ namespace SecondAssignment
     #endregion
 
     #region Assignment part 02
+    //[Flags]
+    //public enum SecurityLevel : byte
+    //{
+    //    Guest = 1,
+    //    Developer = 2,
+    //    Secretary = 4,
+    //    DBA = 8
+    //}
+
+
     [Flags]
-    public enum SecurityLevel : byte
+    enum Permission : byte
     {
-        Guest = 1,
-        Developer = 2,
-        Secretary = 4,
-        DBA = 8
+        None = 0,
+        Delete = 1,
+        Execute = 2,
+        Read = 4,
+        Write = 8,
+        Full = Delete | Execute | Read | Write
     }
+
     #endregion
     internal class Program
     {
@@ -151,52 +164,65 @@ namespace SecondAssignment
             #region  Assignment Part02
             #region Design and implement a Class for the employees in a company
 
-            try
-            {
-                Employee emp = new Employee(
-                    id: 101,
-                    name: "John Doe",
-                    securityLevel: SecurityLevel.Developer | SecurityLevel.DBA,
-                    salary: 85000.75m,
-                    hireDate: new DateTime(2020, 10, 15),
-                    gender: 'M'
-                );
+            //try
+            //{
+            //    Employee emp = new Employee(
+            //        id: 101,
+            //        name: "John Doe",
+            //        securityLevel: SecurityLevel.Developer | SecurityLevel.DBA,
+            //        salary: 85000.75m,
+            //        hireDate: new DateTime(2020, 10, 15),
+            //        gender: 'M'
+            //    );
 
-                Console.WriteLine(emp.ToString());
+            //    Console.WriteLine(emp.ToString());
 
-                if ((emp.SecurityLevel & SecurityLevel.DBA) == SecurityLevel.DBA)
-                {
-                    Console.WriteLine("The employee has DBA privileges.");
-                }
+            //    if ((emp.SecurityLevel & SecurityLevel.DBA) == SecurityLevel.DBA)
+            //    {
+            //        Console.WriteLine("The employee has DBA privileges.");
+            //    }
 
-                emp = new Employee(emp.ID, emp.Name, emp.SecurityLevel | SecurityLevel.Secretary, emp.Salary, emp.HireDate, emp.Gender);
-                Console.WriteLine("Updated Security Level: " + emp.SecurityLevel);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
+            //    emp = new Employee(emp.ID, emp.Name, emp.SecurityLevel | SecurityLevel.Secretary, emp.Salary, emp.HireDate, emp.Gender);
+            //    Console.WriteLine("Updated Security Level: " + emp.SecurityLevel);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("Error: " + ex.Message);
+            //}
 
             #endregion
 
 
             #region Develop a Class to represent the Hiring Date Data:
 
-            try
-            {
-                HiringDate hiringDate = new HiringDate(15, 10, 2020);
+            //try
+            //{
+            //    HiringDate hiringDate = new HiringDate(15, 10, 2020);
 
-                Console.WriteLine("Hiring Date: " + hiringDate.ToString());
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
+            //    Console.WriteLine("Hiring Date: " + hiringDate.ToString());
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("Error: " + ex.Message);
+            //}
 
             #endregion
 
 
             #region Create an array of Employees with size three a DBA, Guest and the third one is security officer who have full permissions. (Employee [] EmpArr
+           
+            //EmpArray[] EmpArr = new EmpArray[3];
+
+            //EmpArr[0] = new EmpArray(1, "DBA", 10000, Permission.Read | Permission.Write);
+            //EmpArr[1] = new EmpArray(2, "Guest", 5000, Permission.Read);
+            //EmpArr[2] = new EmpArray(3, "Security Officer", 15000, Permission.Full);
+
+             
+            //foreach (var emp in EmpArr)
+            //{
+            //    Console.WriteLine(emp);
+            //}
+
 
             #endregion
 
